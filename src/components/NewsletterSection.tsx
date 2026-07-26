@@ -4,12 +4,47 @@ import joinBg from '../assets/join_bg.png';
 
 export const NewsletterSection: React.FC = () => {
   const [email, setEmail] = useState('');
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email || !email.includes('@')) return;
-    setSubmitted(true);
+    if (!email || !email.includes('@')) {
+      setErrorMessage('Please enter a valid email address.');
+      setStatus('error');
+      return;
+    }
+
+    setStatus('loading');
+    setErrorMessage('');
+
+    try {
+      const formData = new FormData();
+      formData.append('email_address', email);
+
+      const response = await fetch('https://app.kit.com/forms/9728169/subscriptions', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (!response.ok) {
+        throw new Error('Submission failed. Please try again.');
+      }
+
+      const data = await response.json();
+      if (data.status === 'success') {
+        setStatus('success');
+      } else {
+        throw new Error(data.message || 'Submission failed. Please try again.');
+      }
+    } catch (err: any) {
+      console.error('Kit subscription error:', err);
+      setErrorMessage(err.message || 'Connection lost. Please try again.');
+      setStatus('error');
+    }
   };
 
   return (
@@ -43,37 +78,46 @@ export const NewsletterSection: React.FC = () => {
           </p>
         </div>
 
-        {submitted ? (
-          <div className="p-8 bg-neutral-950 border border-white/20 space-y-4 max-w-md mx-auto">
-            <div className="inline-flex p-3 bg-white/10 rounded-full text-white mb-2">
-              <Check size={20} />
-            </div>
-            <h3 className="font-serif-display text-2xl text-white">Welcome to the Study.</h3>
-            <p className="font-serif-editorial text-base text-neutral-400">
-              You are enrolled in the dispatch archive.
+        {status === 'success' ? (
+          <div className="space-y-6 pt-4">
+            <h3 className="font-serif-display text-4xl sm:text-5xl md:text-6xl text-white font-normal uppercase tracking-tight">
+              YOU'RE IN.
+            </h3>
+            <p className="font-serif-editorial text-xl sm:text-2xl text-neutral-400 font-light leading-relaxed max-w-md mx-auto">
+              The next letter will arrive when it's ready.
             </p>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-4 pt-4">
-            <div className="relative">
-              <input
-                type="email"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter your email address..."
-                className="w-full bg-neutral-950 border border-white/20 px-6 py-4 text-base font-serif-editorial text-white placeholder-neutral-500 focus:outline-none focus:border-white transition-colors text-center"
-              />
-            </div>
+          <div className="max-w-md mx-auto">
+            <form onSubmit={handleSubmit} className="space-y-4 pt-4">
+              <div className="relative">
+                <input
+                  type="email"
+                  required
+                  disabled={status === 'loading'}
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Enter your email address..."
+                  className="w-full bg-neutral-950 border border-white/20 px-6 py-4 text-base font-serif-editorial text-white placeholder-neutral-500 focus:outline-none focus:border-white transition-colors text-center disabled:opacity-50"
+                />
+              </div>
 
-            <button
-              type="submit"
-              className="w-full inline-flex items-center justify-center space-x-3 text-xs uppercase tracking-[0.3em] font-sans-clean bg-white text-black py-4 hover:bg-neutral-200 transition-all duration-300 cursor-pointer font-medium"
-            >
-              <span>Join</span>
-              <ArrowUpRight size={14} />
-            </button>
-          </form>
+              <button
+                type="submit"
+                disabled={status === 'loading'}
+                className="w-full inline-flex items-center justify-center space-x-3 text-xs uppercase tracking-[0.3em] font-sans-clean bg-white text-black py-4 hover:bg-neutral-200 transition-all duration-300 cursor-pointer font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                <span>{status === 'loading' ? 'Processing...' : 'Join'}</span>
+                <ArrowUpRight size={14} />
+              </button>
+            </form>
+
+            {status === 'error' && (
+              <p className="text-red-500/80 font-sans-clean text-[10px] tracking-wider uppercase pt-4">
+                {errorMessage}
+              </p>
+            )}
+          </div>
         )}
 
         <p className="text-[10px] font-sans-clean tracking-[0.3em] uppercase text-neutral-600">
