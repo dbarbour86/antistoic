@@ -9,9 +9,19 @@ import { MementoMoriBreak } from './components/MementoMoriBreak';
 import { NewsletterSection } from './components/NewsletterSection';
 import { Footer } from './components/Footer';
 import { AmbientAudio } from './components/AmbientAudio';
+import { ConfirmedPage } from './components/ConfirmedPage';
 
 export default function App() {
   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
+  const [currentPath, setCurrentPath] = useState(window.location.pathname);
+
+  useEffect(() => {
+    const handlePopState = () => {
+      setCurrentPath(window.location.pathname);
+    };
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
 
   const scrollToSection = (sectionId: string) => {
     const el = document.getElementById(sectionId);
@@ -51,8 +61,12 @@ export default function App() {
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      // Don't intercept when user is typing in forms/inputs
-      if (document.activeElement?.tagName === 'INPUT' || document.activeElement?.tagName === 'TEXTAREA') {
+      // Don't intercept when user is typing in forms/inputs or on the confirmed page
+      if (
+        document.activeElement?.tagName === 'INPUT' || 
+        document.activeElement?.tagName === 'TEXTAREA' ||
+        window.location.pathname.startsWith('/confirmed')
+      ) {
         return;
       }
 
@@ -78,47 +92,55 @@ export default function App() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
+  const isConfirmedPage = currentPath === '/confirmed' || currentPath === '/confirmed/';
+
   return (
     <div className="bg-black text-white min-h-screen relative font-sans-clean selection:bg-neutral-800 selection:text-white">
       {/* Global static grain overlay */}
       <div className="bg-global-grain" />
 
-      {/* Navigation */}
-      <Navigation
-        onNavigate={scrollToSection}
-        isAudioPlaying={isAudioPlaying}
-        toggleAudio={toggleAudio}
-      />
+      {isConfirmedPage ? (
+        <ConfirmedPage />
+      ) : (
+        <>
+          {/* Navigation */}
+          <Navigation
+            onNavigate={scrollToSection}
+            isAudioPlaying={isAudioPlaying}
+            toggleAudio={toggleAudio}
+          />
 
-      {/* Main Flow — 7 Sections in Exact Specified Order */}
-      <main className="relative z-10">
-        {/* SECTION 1: HERO */}
-        <Hero onExplore={() => scrollToSection('why')} />
+          {/* Main Flow — 7 Sections in Exact Specified Order */}
+          <main className="relative z-10">
+            {/* SECTION 1: HERO */}
+            <Hero onExplore={() => scrollToSection('why')} />
 
-        {/* SECTION 2: WHY ANTISTOIC EXISTS */}
-        <Intro />
+            {/* SECTION 2: WHY ANTISTOIC EXISTS */}
+            <Intro />
 
-        {/* SECTION 2.5: DAILY REFLECTION */}
-        <DailyReflection />
+            {/* SECTION 2.5: DAILY REFLECTION */}
+            <DailyReflection />
 
-        {/* SECTION 3: THE FIVE PRINCIPLES */}
-        <PrinciplesSection />
+            {/* SECTION 3: THE FIVE PRINCIPLES */}
+            <PrinciplesSection />
 
-        {/* SECTION 4: MANIFESTO */}
-        <ManifestoSection />
+            {/* SECTION 4: MANIFESTO */}
+            <ManifestoSection />
 
-        {/* SECTION 5: MEMENTO MORI */}
-        <MementoMoriBreak />
+            {/* SECTION 5: MEMENTO MORI */}
+            <MementoMoriBreak />
 
-        {/* SECTION 6: CLOSING */}
-        <NewsletterSection />
-      </main>
+            {/* SECTION 6: CLOSING */}
+            <NewsletterSection />
+          </main>
 
-      {/* Footer */}
-      <Footer />
+          {/* Footer */}
+          <Footer />
 
-      {/* Ambient sound generator */}
-      <AmbientAudio isPlaying={isAudioPlaying} />
+          {/* Ambient sound generator */}
+          <AmbientAudio isPlaying={isAudioPlaying} />
+        </>
+      )}
     </div>
   );
 }
