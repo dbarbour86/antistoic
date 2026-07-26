@@ -25,6 +25,7 @@ export const Navigation: React.FC<NavigationProps> = ({
 
   const navItems = [
     { label: 'Why', id: 'why' },
+    { label: 'Reflection', id: 'reflection' },
     { label: 'Principles', id: 'principles' },
     { label: 'Manifesto', id: 'manifesto' },
     { label: 'Join', id: 'study' },

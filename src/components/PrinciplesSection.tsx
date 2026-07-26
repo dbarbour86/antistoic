@@ -67,7 +67,7 @@ export const PrinciplesSection: React.FC = () => {
                       <img
                         src={p.imageUrl}
                         alt={p.imageAlt}
-                        className="w-full h-full object-cover mono-sculpture transform group-hover:scale-105 transition-transform duration-1000 grayscale contrast-125"
+                        className="w-full h-full object-cover mono-sculpture transform scale-[1.04] group-hover:scale-[1.09] transition-transform duration-1000 grayscale contrast-125"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-70" />
                       

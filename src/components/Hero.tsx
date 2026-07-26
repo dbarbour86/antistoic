@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { ArrowDown } from 'lucide-react';
+import heroBgBlack from '../assets/hero_bg_black.png';
 
 interface HeroProps {
   onExplore: () => void;
@@ -7,30 +8,60 @@ interface HeroProps {
 
 export const Hero: React.FC<HeroProps> = ({ onExplore }) => {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
   useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setPrefersReducedMotion(mediaQuery.matches);
+    
+    const listener = (e: MediaQueryListEvent) => {
+      setPrefersReducedMotion(e.matches);
+    };
+    mediaQuery.addEventListener('change', listener);
+
+    if (mediaQuery.matches) {
+      return () => mediaQuery.removeEventListener('change', listener);
+    }
+
     const handleMouseMove = (e: MouseEvent) => {
       const { clientX, clientY } = e;
-      const x = (clientX / window.innerWidth - 0.5) * 15;
-      const y = (clientY / window.innerHeight - 0.5) * 15;
+      const x = (clientX / window.innerWidth - 0.5) * 12;
+      const y = (clientY / window.innerHeight - 0.5) * 12;
       setMousePos({ x, y });
     };
 
     window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      mediaQuery.removeEventListener('change', listener);
+    };
   }, []);
 
   return (
-    <section id="hero" className="relative min-h-screen bg-black flex flex-col justify-between pt-28 pb-12 px-6 md:px-12 overflow-hidden border-b border-white/10">
-      {/* Background grain */}
-      <div className="absolute inset-0 bg-grain pointer-events-none opacity-30" />
+    <section id="hero" className="relative min-h-screen bg-black flex flex-col justify-between pt-28 pb-12 px-6 md:px-12 overflow-hidden border-b border-white/10 select-none">
+      
+      {/* Background Atlas Engraving (very faint, ~20% visibility) */}
+      <div
+        className="absolute inset-0 bg-no-repeat bg-cover pointer-events-none opacity-20 mix-blend-screen"
+        style={{
+          backgroundImage: `url(${heroBgBlack})`,
+          backgroundPosition: 'right center',
+        }}
+      />
+
+      {/* Background grain noise layer */}
+      <div className="absolute inset-0 bg-grain pointer-events-none opacity-30 z-20" />
 
       {/* Main Grid Content */}
       <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-12 items-center my-auto z-10 py-8 lg:py-16">
         
         {/* Left Column: Massive Typography */}
-        <div className="lg:col-span-7 flex flex-col justify-center space-y-8">
-          
+        <div
+          className="lg:col-span-7 flex flex-col justify-center space-y-8 transition-transform duration-700 ease-out"
+          style={{
+            transform: prefersReducedMotion ? 'none' : `translate3d(${mousePos.x}px, ${mousePos.y}px, 0)`
+          }}
+        >
           <div className="inline-flex items-center space-x-3">
             <span className="w-8 h-[1px] bg-neutral-600" />
             <span className="text-[11px] font-sans-clean tracking-[0.35em] uppercase text-neutral-400">
@@ -39,8 +70,8 @@ export const Hero: React.FC<HeroProps> = ({ onExplore }) => {
           </div>
 
           <div className="space-y-4">
-            <h1 className="font-serif-display text-6xl sm:text-7xl md:text-8xl xl:text-[9.5rem] tracking-tight text-white font-normal leading-[0.88] select-none">
-              ANTI STOIC
+            <h1 className="font-serif-display text-6xl sm:text-7xl md:text-8xl xl:text-[9.5rem] tracking-tight text-white font-normal leading-[0.88] drop-shadow-md">
+              AntiStoic
             </h1>
             <p className="font-serif-display text-3xl sm:text-4xl md:text-5xl italic font-light text-neutral-300 tracking-tight pt-1">
               Think Differently.
@@ -62,33 +93,8 @@ export const Hero: React.FC<HeroProps> = ({ onExplore }) => {
           </div>
         </div>
 
-        {/* Right Column: Large Marble Statue Visual */}
-        <div className="lg:col-span-5 relative flex justify-center items-center">
-          <div
-            className="relative w-full max-w-md lg:max-w-none aspect-[3/4] border border-white/20 p-3 bg-neutral-950 transition-transform duration-700 ease-out shadow-2xl"
-            style={{
-              transform: `translate3d(${mousePos.x}px, ${mousePos.y}px, 0)`
-            }}
-          >
-            <div className="w-full h-full relative overflow-hidden bg-neutral-900 group">
-              <img
-                src="https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=1200&auto=format&fit=crop"
-                alt="Classical Marble Statue in Low Key Shadow"
-                className="w-full h-full object-cover mono-sculpture transform group-hover:scale-105 transition-transform duration-1000 grayscale contrast-125"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
-              
-              {/* Statue Details */}
-              <div className="absolute bottom-6 left-6 right-6 flex justify-between items-end text-neutral-400 font-sans-clean text-[10px] tracking-[0.25em] uppercase">
-                <div>
-                  <span className="block text-white font-medium text-xs font-serif-display">MARCUS AURELIUS</span>
-                  <span className="text-neutral-500">Parian Marble • Antonine Dynasty</span>
-                </div>
-                <span>EXHIBIT 01</span>
-              </div>
-            </div>
-          </div>
-        </div>
+        {/* Right Column: Empty space to let the background Hermes art show through */}
+        <div className="lg:col-span-5 h-[150px] lg:h-auto pointer-events-none" />
 
       </div>
 
@@ -115,4 +121,3 @@ export const Hero: React.FC<HeroProps> = ({ onExplore }) => {
     </section>
   );
 };
-

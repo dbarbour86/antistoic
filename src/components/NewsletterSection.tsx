@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowUpRight, Check } from 'lucide-react';
+import joinBg from '../assets/join_bg.png';
 
 export const NewsletterSection: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -12,8 +13,17 @@ export const NewsletterSection: React.FC = () => {
   };
 
   return (
-    <section id="study" className="py-36 md:py-52 bg-black text-white px-6 md:px-12 border-b border-white/10 relative">
-      <div className="max-w-2xl mx-auto text-center space-y-12">
+    <section id="study" className="py-36 md:py-52 bg-black text-white px-6 md:px-12 border-b border-white/10 relative overflow-hidden">
+      {/* Background Image (very faint, ~20% visibility) */}
+      <div
+        className="absolute inset-0 bg-no-repeat bg-cover pointer-events-none opacity-20 mix-blend-screen"
+        style={{
+          backgroundImage: `url(${joinBg})`,
+          backgroundPosition: 'right center',
+        }}
+      />
+
+      <div className="max-w-2xl mx-auto text-center space-y-12 relative z-10">
         
         {/* Heading */}
         <div className="space-y-4">

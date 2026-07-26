@@ -2,7 +2,7 @@ import React from 'react';
 
 export const MementoMoriBreak: React.FC = () => {
   return (
-    <section className="relative min-h-[90vh] md:min-h-screen bg-black flex flex-col items-center justify-center py-24 px-4 overflow-hidden border-b border-white/10 select-none">
+    <section id="memento-mori" className="relative min-h-[90vh] md:min-h-screen bg-black flex flex-col items-center justify-center py-24 px-4 overflow-hidden border-b border-white/10 select-none">
       {/* Background grain */}
       <div className="absolute inset-0 bg-grain opacity-30 pointer-events-none" />
 

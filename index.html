@@ -3,14 +3,78 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AntiStoic — Think Differently.</title>
+    <title>AntiStoic | Think Differently</title>
+    <meta name="description" content="AntiStoic is a digital manifesto about discipline, courage, ownership, perspective, and mortality—without recycled quotes or performative toughness." />
+    <link rel="canonical" href="https://antistoic.com/" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+
+    <!-- Robots Directives -->
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+
+    <!-- Open Graph Metadata -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://antistoic.com/" />
+    <meta property="og:title" content="AntiStoic | Think Differently" />
+    <meta property="og:description" content="AntiStoic is a digital manifesto about discipline, courage, ownership, perspective, and mortality—without recycled quotes or performative toughness." />
+    <meta property="og:image" content="https://antistoic.com/og-image.png" />
+    <meta property="og:image:alt" content="Atlas carrying the weight of the world in the monochrome AntiStoic visual style." />
+    <meta property="og:site_name" content="AntiStoic" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card Metadata -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="AntiStoic | Think Differently" />
+    <meta name="twitter:description" content="AntiStoic is a digital manifesto about discipline, courage, ownership, perspective, and mortality—without recycled quotes or performative toughness." />
+    <meta name="twitter:image" content="https://antistoic.com/og-image.png" />
+    <meta name="twitter:image:alt" content="Atlas carrying the weight of the world in the monochrome AntiStoic visual style." />
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=IBM+Plex+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- JSON-LD Structured Data Graph -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://antistoic.com/#organization",
+          "name": "AntiStoic",
+          "url": "https://antistoic.com/",
+          "logo": "https://antistoic.com/favicon.png",
+          "description": "AntiStoic is a modern philosophy project about discipline, courage, ownership, perspective, and mortality."
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://antistoic.com/#website",
+          "url": "https://antistoic.com/",
+          "name": "AntiStoic",
+          "publisher": {
+            "@id": "https://antistoic.com/#organization"
+          }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://antistoic.com/#webpage",
+          "url": "https://antistoic.com/",
+          "name": "AntiStoic | Think Differently",
+          "isPartOf": {
+            "@id": "https://antistoic.com/#website"
+          },
+          "about": {
+            "@id": "https://antistoic.com/#organization"
+          },
+          "description": "AntiStoic is a digital manifesto about discipline, courage, ownership, perspective, and mortality—without recycled quotes or performative toughness."
+        }
+      ]
+    }
+    </script>
   </head>
   <body class="bg-black text-white min-h-screen overflow-x-hidden selection:bg-neutral-800 selection:text-neutral-100">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
-

@@ -1,0 +1,407 @@
+ANTI STOIC
+IMAGE DIRECTION GUIDE
+
+This document defines the visual language for every image created for the AntiStoic brand.
+
+Every image should immediately feel like it belongs to the same world.
+
+The visual identity is timeless, restrained, editorial, architectural, and emotionally powerful.
+
+--------------------------------------------------
+
+CORE IDEA
+
+The artwork should feel like discovering forgotten pieces inside an ancient museum.
+
+Nothing should feel modern.
+
+Nothing should feel trendy.
+
+Nothing should feel AI generated.
+
+The artwork should feel like it already existed centuries ago.
+
+--------------------------------------------------
+
+EMOTIONAL GOALS
+
+Every image should evoke:
+
+Stillness
+
+Discipline
+
+Mortality
+
+Perspective
+
+Responsibility
+
+Quiet confidence
+
+Reflection
+
+Mystery
+
+Timelessness
+
+The viewer should pause.
+
+Not simply look.
+
+--------------------------------------------------
+
+STYLE
+
+Luxury Editorial
+
+Museum Exhibition
+
+Neo-Classical
+
+Architectural
+
+High Fashion
+
+Fine Art
+
+19th Century Copperplate Engraving
+
+Marble Sculpture
+
+Museum Photography
+
+Editorial Minimalism
+
+Never fantasy.
+
+Never gaming.
+
+Never comic book.
+
+Never cinematic action.
+
+--------------------------------------------------
+
+COLOR PALETTE
+
+Pure Black background.
+
+Pure White subject whenever possible.
+
+Extremely high contrast.
+
+Very subtle gray only for depth.
+
+No colors.
+
+No gold.
+
+No blue.
+
+No red.
+
+No neon.
+
+No gradients.
+
+Monochrome only.
+
+--------------------------------------------------
+
+LIGHTING
+
+Museum lighting.
+
+Directional.
+
+Soft but dramatic.
+
+Deep shadows.
+
+Strong highlights.
+
+Large negative space.
+
+The subject should emerge from darkness.
+
+Never flat lighting.
+
+--------------------------------------------------
+
+TEXTURE
+
+Weathered marble.
+
+Stone.
+
+Ancient paper.
+
+Copperplate engraving.
+
+Fine etched linework.
+
+Subtle film grain.
+
+Light dust.
+
+Very restrained.
+
+Never overprocessed.
+
+--------------------------------------------------
+
+SUBJECTS
+
+Prefer:
+
+Roman busts
+
+Greek statues
+
+Broken marble sculptures
+
+Ancient architecture
+
+Columns
+
+Column capitals
+
+Stone staircases
+
+Stone arches
+
+Ancient doors
+
+Sculpted hands
+
+Ancient books
+
+Stone tablets
+
+Museum artifacts
+
+Architectural fragments
+
+Winged marble figures
+
+Atlas
+
+Nike
+
+Classical allegorical figures
+
+Hands reaching
+
+Broken laurel wreaths
+
+Avoid generic Marcus Aurelius busts unless specifically requested.
+
+--------------------------------------------------
+
+COMPOSITION
+
+Large negative space.
+
+Asymmetrical balance.
+
+Subjects partially cropped.
+
+Images may bleed off the canvas.
+
+Subjects should not always be centered.
+
+The artwork should leave room for typography.
+
+Editorial composition over symmetrical composition.
+
+--------------------------------------------------
+
+MOOD
+
+Calm.
+
+Quiet.
+
+Heavy.
+
+Elegant.
+
+Expensive.
+
+Timeless.
+
+Architectural.
+
+Reflective.
+
+Never aggressive.
+
+Never loud.
+
+Never busy.
+
+--------------------------------------------------
+
+CAMERA
+
+If using photography:
+
+Museum quality.
+
+Medium format feel.
+
+Fine art photography.
+
+Extremely sharp.
+
+Large depth.
+
+No wide-angle distortion.
+
+No HDR.
+
+--------------------------------------------------
+
+GRAPHIC DESIGN
+
+No icons.
+
+No floating UI.
+
+No fake overlays.
+
+No random particles.
+
+No unnecessary textures.
+
+Typography should remain separate from artwork unless specifically requested.
+
+--------------------------------------------------
+
+WHAT TO AVOID
+
+Do NOT create:
+
+Generic motivational posters
+
+Spartan helmets
+
+Lions
+
+Wolves
+
+Fire
+
+Lightning
+
+War scenes
+
+Blood
+
+Explosions
+
+Muscular fantasy warriors
+
+Roman soldiers yelling
+
+Overly detailed fantasy armor
+
+Crypto aesthetics
+
+AI glow
+
+Cyberpunk
+
+Synthwave
+
+Gold trim
+
+Inspirational social media graphics
+
+Anything resembling a quote account.
+
+--------------------------------------------------
+
+REFERENCE BRANDS
+
+Apple
+
+Aesop
+
+COS
+
+Saint Laurent
+
+The Row
+
+Kinfolk
+
+The Getty Museum
+
+The Metropolitan Museum of Art
+
+Luxury editorial magazines
+
+Museum exhibition catalogs
+
+--------------------------------------------------
+
+QUALITY TEST
+
+Before generating an image ask:
+
+Could this hang inside a modern art museum?
+
+Would this work as a luxury fashion campaign?
+
+Would someone mistake this for a stock image?
+
+If yes...
+
+Start over.
+
+--------------------------------------------------
+
+DEFAULT IMAGE PROMPT TEMPLATE
+
+Create a museum-quality monochrome editorial artwork.
+
+Subject:
+[Replace with subject]
+
+Style:
+Luxury editorial photography blended with nineteenth-century copperplate engraving and classical marble sculpture.
+
+Background:
+Pure black.
+
+Subject:
+Pure white or pale marble.
+
+Lighting:
+Directional museum lighting with deep shadows and restrained highlights.
+
+Composition:
+Large negative space.
+Editorial asymmetry.
+Leave room for typography.
+
+Texture:
+Weathered marble.
+Subtle engraving detail.
+Fine film grain.
+
+Mood:
+Quiet.
+Timeless.
+Reflective.
+Architectural.
+Emotionally restrained.
+
+No color.
+No fantasy.
+No modern elements.
+No decorative clutter.
+
+The final result should feel worthy of an international museum exhibition or luxury fashion campaign rather than an AI-generated illustration.

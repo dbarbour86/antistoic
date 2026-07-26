@@ -1,0 +1,502 @@
+[
+  {
+    "id": 1,
+    "category": "control",
+    "text": "What are you trying to control that was never yours?"
+  },
+  {
+    "id": 2,
+    "category": "control",
+    "text": "Your effort is yours. The outcome is not."
+  },
+  {
+    "id": 3,
+    "category": "control",
+    "text": "Control your response before it controls your day."
+  },
+  {
+    "id": 4,
+    "category": "control",
+    "text": "Preparation is yours. Approval is not."
+  },
+  {
+    "id": 5,
+    "category": "control",
+    "text": "What changes when you stop arguing with reality?"
+  },
+  {
+    "id": 6,
+    "category": "control",
+    "text": "You cannot command the wind. You can still adjust the sail."
+  },
+  {
+    "id": 7,
+    "category": "control",
+    "text": "Release the result. Refine the action."
+  },
+  {
+    "id": 8,
+    "category": "control",
+    "text": "What belongs to you in this moment?"
+  },
+  {
+    "id": 9,
+    "category": "control",
+    "text": "Your next decision is still yours."
+  },
+  {
+    "id": 10,
+    "category": "control",
+    "text": "Stop demanding certainty before you move."
+  },
+  {
+    "id": 11,
+    "category": "control",
+    "text": "You do not control the room. You control your presence."
+  },
+  {
+    "id": 12,
+    "category": "control",
+    "text": "The uncontrollable becomes lighter when you stop carrying it."
+  },
+  {
+    "id": 13,
+    "category": "control",
+    "text": "What would remain if the outcome disappointed you?"
+  },
+  {
+    "id": 14,
+    "category": "control",
+    "text": "Own the choice. Release the applause."
+  },
+  {
+    "id": 15,
+    "category": "control",
+    "text": "Peace begins where unnecessary control ends."
+  },
+  {
+    "id": 16,
+    "category": "control",
+    "text": "You can influence much. You can possess little."
+  },
+  {
+    "id": 17,
+    "category": "control",
+    "text": "Focus narrows when blame leaves the room."
+  },
+  {
+    "id": 18,
+    "category": "discipline",
+    "text": "What comfort are you protecting at tomorrow's expense?"
+  },
+  {
+    "id": 19,
+    "category": "discipline",
+    "text": "Discipline begins where negotiation ends."
+  },
+  {
+    "id": 20,
+    "category": "discipline",
+    "text": "The standard you ignore becomes the life you accept."
+  },
+  {
+    "id": 21,
+    "category": "discipline",
+    "text": "Do the work before your mood submits an opinion."
+  },
+  {
+    "id": 22,
+    "category": "discipline",
+    "text": "Consistency is quiet until the results become visible."
+  },
+  {
+    "id": 23,
+    "category": "discipline",
+    "text": "What did you promise yourself and quietly abandon?"
+  },
+  {
+    "id": 24,
+    "category": "discipline",
+    "text": "Motivation asks how you feel. Discipline asks what is required."
+  },
+  {
+    "id": 25,
+    "category": "discipline",
+    "text": "Your habits are building someone. Choose who."
+  },
+  {
+    "id": 26,
+    "category": "discipline",
+    "text": "The difficult choice rarely becomes easier through delay."
+  },
+  {
+    "id": 27,
+    "category": "discipline",
+    "text": "You need fewer negotiations with yourself."
+  },
+  {
+    "id": 28,
+    "category": "discipline",
+    "text": "A weak routine creates strong excuses."
+  },
+  {
+    "id": 29,
+    "category": "discipline",
+    "text": "What would change if you kept one promise daily?"
+  },
+  {
+    "id": 30,
+    "category": "discipline",
+    "text": "Discomfort is temporary. The standard remains."
+  },
+  {
+    "id": 31,
+    "category": "discipline",
+    "text": "Do not confuse intensity with consistency."
+  },
+  {
+    "id": 32,
+    "category": "discipline",
+    "text": "Small neglect becomes a way of life."
+  },
+  {
+    "id": 33,
+    "category": "discipline",
+    "text": "Your future is shaped by ordinary repetitions."
+  },
+  {
+    "id": 34,
+    "category": "discipline",
+    "text": "What are you waiting to feel ready for?"
+  },
+  {
+    "id": 35,
+    "category": "courage",
+    "text": "What would you attempt if embarrassment had no power?"
+  },
+  {
+    "id": 36,
+    "category": "courage",
+    "text": "Courage often looks like an honest conversation."
+  },
+  {
+    "id": 37,
+    "category": "courage",
+    "text": "Move toward the task you keep circling."
+  },
+  {
+    "id": 38,
+    "category": "courage",
+    "text": "Fear can speak without being obeyed."
+  },
+  {
+    "id": 39,
+    "category": "courage",
+    "text": "What truth would change your life if spoken aloud?"
+  },
+  {
+    "id": 40,
+    "category": "courage",
+    "text": "The door may stay closed. Knock anyway."
+  },
+  {
+    "id": 41,
+    "category": "courage",
+    "text": "Avoidance is still a choice."
+  },
+  {
+    "id": 42,
+    "category": "courage",
+    "text": "You do not need confidence before action."
+  },
+  {
+    "id": 43,
+    "category": "courage",
+    "text": "What discomfort have you mistaken for danger?"
+  },
+  {
+    "id": 44,
+    "category": "courage",
+    "text": "Bravery is often quiet and poorly timed."
+  },
+  {
+    "id": 45,
+    "category": "courage",
+    "text": "The honest path rarely asks permission."
+  },
+  {
+    "id": 46,
+    "category": "courage",
+    "text": "What are you protecting by staying small?"
+  },
+  {
+    "id": 47,
+    "category": "courage",
+    "text": "Walk into uncertainty carrying your principles."
+  },
+  {
+    "id": 48,
+    "category": "courage",
+    "text": "The first step does not require the full map."
+  },
+  {
+    "id": 49,
+    "category": "courage",
+    "text": "Courage is refusing to become what hurt you."
+  },
+  {
+    "id": 50,
+    "category": "courage",
+    "text": "Say the necessary thing without making it cruel."
+  },
+  {
+    "id": 51,
+    "category": "courage",
+    "text": "What would integrity require from you today?"
+  },
+  {
+    "id": 52,
+    "category": "ownership",
+    "text": "The life you tolerate becomes the life you choose."
+  },
+  {
+    "id": 53,
+    "category": "ownership",
+    "text": "Which excuse has become part of your identity?"
+  },
+  {
+    "id": 54,
+    "category": "ownership",
+    "text": "Responsibility feels heavy until compared with regret."
+  },
+  {
+    "id": 55,
+    "category": "ownership",
+    "text": "What did you knowingly leave unfinished?"
+  },
+  {
+    "id": 56,
+    "category": "ownership",
+    "text": "Blame explains the past. It does not build the future."
+  },
+  {
+    "id": 57,
+    "category": "ownership",
+    "text": "You inherited circumstances, not your final character."
+  },
+  {
+    "id": 58,
+    "category": "ownership",
+    "text": "Your reasons may be valid. Your responsibility remains."
+  },
+  {
+    "id": 59,
+    "category": "ownership",
+    "text": "What changes when you stop waiting to be rescued?"
+  },
+  {
+    "id": 60,
+    "category": "ownership",
+    "text": "Own your part without owning what is not yours."
+  },
+  {
+    "id": 61,
+    "category": "ownership",
+    "text": "The apology means little without changed behavior."
+  },
+  {
+    "id": 62,
+    "category": "ownership",
+    "text": "You cannot rewrite yesterday. You can stop repeating it."
+  },
+  {
+    "id": 63,
+    "category": "ownership",
+    "text": "What consequence are you pretending arrived by accident?"
+  },
+  {
+    "id": 64,
+    "category": "ownership",
+    "text": "Your attention reveals what you truly value."
+  },
+  {
+    "id": 65,
+    "category": "ownership",
+    "text": "Excuses become expensive when repeated long enough."
+  },
+  {
+    "id": 66,
+    "category": "ownership",
+    "text": "You are allowed to begin before anyone understands."
+  },
+  {
+    "id": 67,
+    "category": "ownership",
+    "text": "What would change if you stopped defending the old you?"
+  },
+  {
+    "id": 68,
+    "category": "ownership",
+    "text": "Freedom grows where responsibility is accepted."
+  },
+  {
+    "id": 69,
+    "category": "perspective",
+    "text": "What feels permanent only because you are inside it?"
+  },
+  {
+    "id": 70,
+    "category": "perspective",
+    "text": "The event happened once. Your judgment repeats it."
+  },
+  {
+    "id": 71,
+    "category": "perspective",
+    "text": "Zoom out before you call this the end."
+  },
+  {
+    "id": 72,
+    "category": "perspective",
+    "text": "What story are you adding to the facts?"
+  },
+  {
+    "id": 73,
+    "category": "perspective",
+    "text": "A closed door may be direction, not rejection."
+  },
+  {
+    "id": 74,
+    "category": "perspective",
+    "text": "Your first interpretation is not always the truest."
+  },
+  {
+    "id": 75,
+    "category": "perspective",
+    "text": "What would this problem look like in one year?"
+  },
+  {
+    "id": 76,
+    "category": "perspective",
+    "text": "The obstacle may be real. Your helplessness may not be."
+  },
+  {
+    "id": 77,
+    "category": "perspective",
+    "text": "Pain narrows the frame. Widen it deliberately."
+  },
+  {
+    "id": 78,
+    "category": "perspective",
+    "text": "Not every delay is denial."
+  },
+  {
+    "id": 79,
+    "category": "perspective",
+    "text": "What are you calling failure that is still unfinished?"
+  },
+  {
+    "id": 80,
+    "category": "perspective",
+    "text": "You may not need a new life. You may need new attention."
+  },
+  {
+    "id": 81,
+    "category": "perspective",
+    "text": "Some losses reveal what should never have owned you."
+  },
+  {
+    "id": 82,
+    "category": "perspective",
+    "text": "The same weight builds one person and buries another."
+  },
+  {
+    "id": 83,
+    "category": "perspective",
+    "text": "What would gratitude notice here?"
+  },
+  {
+    "id": 84,
+    "category": "perspective",
+    "text": "The moment is difficult. It is not your entire life."
+  },
+  {
+    "id": 85,
+    "category": "mortality",
+    "text": "How much of today did you spend as if time were endless?"
+  },
+  {
+    "id": 86,
+    "category": "mortality",
+    "text": "You are spending your life, not merely your hours."
+  },
+  {
+    "id": 87,
+    "category": "mortality",
+    "text": "What deserves attention before the day closes?"
+  },
+  {
+    "id": 88,
+    "category": "mortality",
+    "text": "One day, there will be no later."
+  },
+  {
+    "id": 89,
+    "category": "mortality",
+    "text": "Time leaves quietly while distraction speaks loudly."
+  },
+  {
+    "id": 90,
+    "category": "mortality",
+    "text": "What would matter if this season ended sooner than expected?"
+  },
+  {
+    "id": 91,
+    "category": "mortality",
+    "text": "Your calendar is a record of what receives your life."
+  },
+  {
+    "id": 92,
+    "category": "mortality",
+    "text": "What have you postponed as though tomorrow were promised?"
+  },
+  {
+    "id": 93,
+    "category": "mortality",
+    "text": "The ordinary day is still part of your limited life."
+  },
+  {
+    "id": 94,
+    "category": "mortality",
+    "text": "Do not wait for loss to recognize value."
+  },
+  {
+    "id": 95,
+    "category": "mortality",
+    "text": "Mortality makes priorities honest."
+  },
+  {
+    "id": 96,
+    "category": "mortality",
+    "text": "What would you stop pretending mattered?"
+  },
+  {
+    "id": 97,
+    "category": "mortality",
+    "text": "The hour passes whether you use it or surrender it."
+  },
+  {
+    "id": 98,
+    "category": "mortality",
+    "text": "You will not remember every task. You will remember how you lived."
+  },
+  {
+    "id": 99,
+    "category": "mortality",
+    "text": "Let the end clarify the middle."
+  },
+  {
+    "id": 100,
+    "category": "mortality",
+    "text": "Before this day disappears, be present for it."
+  }
+]
