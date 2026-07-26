@@ -2,47 +2,67 @@ import React, { useState } from 'react';
 import { ArrowUpRight, Check } from 'lucide-react';
 import joinBg from '../assets/join_bg.png';
 
+const getCkid = () => {
+  if (typeof window === 'undefined') return '';
+  const key = 'ckid';
+  let val = localStorage.getItem(key);
+  if (!val) {
+    val = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
+      const r = (Math.random() * 16) | 0;
+      const v = c === 'x' ? r : (r & 0x3) | 0x8;
+      return v.toString(16);
+    });
+    localStorage.setItem(key, val);
+  }
+  return val;
+};
+
 export const NewsletterSection: React.FC = () => {
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
-  const [errorMessage, setErrorMessage] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email || !email.includes('@')) {
-      setErrorMessage('Please enter a valid email address.');
       setStatus('error');
       return;
     }
 
     setStatus('loading');
-    setErrorMessage('');
 
     try {
+      const ckid = getCkid();
       const formData = new FormData();
       formData.append('email_address', email);
+      formData.append('token', '');
+      formData.append('referrer', document.referrer || '');
+      formData.append('host', window.location.href);
+      formData.append('search', window.location.search || '');
+      formData.append('user', ckid);
+      formData.append('ckjs_version', '6');
 
       const response = await fetch('https://app.kit.com/forms/9728169/subscriptions', {
         method: 'POST',
         body: formData,
         headers: {
-          'Accept': 'application/json'
+          'Accept': 'application/json',
+          'X-CKJS-Version': '6'
         }
       });
 
       if (!response.ok) {
-        throw new Error('Submission failed. Please try again.');
+        throw new Error(`Server returned HTTP status ${response.status}: ${response.statusText}`);
       }
 
       const data = await response.json();
       if (data.status === 'success') {
         setStatus('success');
       } else {
-        throw new Error(data.message || 'Submission failed. Please try again.');
+        const detailMsg = data.errors?.messages?.join(' ') || 'Status check failed on subscriber registration.';
+        throw new Error(detailMsg);
       }
     } catch (err: any) {
-      console.error('Kit subscription error:', err);
-      setErrorMessage(err.message || 'Connection lost. Please try again.');
+      console.error('AntiStoic subscription submission error:', err);
       setStatus('error');
     }
   };
@@ -83,9 +103,10 @@ export const NewsletterSection: React.FC = () => {
             <h3 className="font-serif-display text-4xl sm:text-5xl md:text-6xl text-white font-normal uppercase tracking-tight">
               YOU'RE IN.
             </h3>
-            <p className="font-serif-editorial text-xl sm:text-2xl text-neutral-400 font-light leading-relaxed max-w-md mx-auto">
-              The next letter will arrive when it's ready.
-            </p>
+            <div className="font-serif-editorial text-xl sm:text-2xl text-neutral-400 font-light leading-relaxed max-w-md mx-auto space-y-2">
+              <p>Now, confirm your email.</p>
+              <p>The next letter will arrive when it's ready.</p>
+            </div>
           </div>
         ) : (
           <div className="max-w-md mx-auto">
@@ -113,9 +134,10 @@ export const NewsletterSection: React.FC = () => {
             </form>
 
             {status === 'error' && (
-              <p className="text-red-500/80 font-sans-clean text-[10px] tracking-wider uppercase pt-4">
-                {errorMessage}
-              </p>
+              <div className="text-red-500/80 font-sans-clean text-[10px] tracking-wider uppercase pt-6 space-y-1">
+                <p>Something went wrong.</p>
+                <p>Try again.</p>
+              </div>
             )}
           </div>
         )}
