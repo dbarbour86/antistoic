@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { ArrowUpRight, Check } from 'lucide-react';
+import React, { useState } from 'react';
+import { ArrowUpRight } from 'lucide-react';
 import joinBg from '../assets/join_bg.png';
 
 const getCkid = () => {
@@ -21,28 +21,7 @@ export const NewsletterSection: React.FC = () => {
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
 
-  useEffect(() => {
-    // Dynamically insert the Kit script into the dedicated container
-    const container = document.getElementById('kit-script-container');
-    if (!container) return;
-
-    // Clean up any existing elements
-    container.innerHTML = '';
-
-    const script = document.createElement('script');
-    script.src = 'https://antistoic.kit.com/357b8e3f67/index.js';
-    script.async = true;
-    script.setAttribute('data-uid', '357b8e3f67');
-    container.appendChild(script);
-
-    return () => {
-      if (container) {
-        container.innerHTML = '';
-      }
-    };
-  }, []);
-
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!email || !email.includes('@')) {
       setStatus('error');
@@ -53,8 +32,8 @@ export const NewsletterSection: React.FC = () => {
 
     try {
       const ckid = getCkid();
-      const formData = new FormData();
-      formData.append('email_address', email);
+      // Uses new FormData(form) which automatically collects email_address from the input field
+      const formData = new FormData(e.currentTarget);
       formData.append('token', '');
       formData.append('referrer', document.referrer || '');
       formData.append('host', window.location.href);
@@ -134,7 +113,9 @@ export const NewsletterSection: React.FC = () => {
             <form onSubmit={handleSubmit} className="space-y-4 pt-4">
               <div className="relative">
                 <input
+                  name="email_address"
                   type="email"
+                  autoComplete="email"
                   required
                   disabled={status === 'loading'}
                   value={email}
@@ -163,9 +144,6 @@ export const NewsletterSection: React.FC = () => {
           </div>
         )}
 
-        {/* Kit script form injected directly for fallback/testing */}
-        <div id="kit-script-container" className="pt-8 flex justify-center text-left" />
-
         <p className="text-[10px] font-sans-clean tracking-[0.3em] uppercase text-neutral-600">
           UNSUBSCRIBE AT ANY MOMENT • NO SPAM
         </p>
@@ -173,4 +151,3 @@ export const NewsletterSection: React.FC = () => {
     </section>
   );
 };
-
