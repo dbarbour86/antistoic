@@ -9,7 +9,6 @@ interface ReflectionItem {
 }
 
 export const DailyReflection: React.FC = () => {
-  const [copyStatus, setCopyStatus] = useState<'COPY' | 'COPIED'>('COPY');
   const [shareStatus, setShareStatus] = useState<'SHARE' | 'COPIED'>('SHARE');
 
   const reflections: ReflectionItem[] = reflectionsData;
@@ -25,13 +24,6 @@ export const DailyReflection: React.FC = () => {
   // Format copied/shared text exactly as specified
   const getFormattedText = () => {
     return `"${reflection.text}"\n\n— AntiStoic\nantistoic.com`;
-  };
-
-  const handleCopy = () => {
-    navigator.clipboard.writeText(getFormattedText()).then(() => {
-      setCopyStatus('COPIED');
-      setTimeout(() => setCopyStatus('COPY'), 2000);
-    });
   };
 
   const handleShare = () => {
@@ -99,14 +91,7 @@ export const DailyReflection: React.FC = () => {
 
           {/* Interactions */}
           <div className="space-y-4 pt-6">
-            <div className="flex justify-center items-center space-x-8 text-[11px] font-sans-clean tracking-[0.35em] text-neutral-400">
-              <button
-                onClick={handleCopy}
-                className="hover:text-white cursor-pointer transition-colors duration-300 focus:outline-none uppercase"
-              >
-                {copyStatus}
-              </button>
-              <span className="text-neutral-800">•</span>
+            <div className="flex justify-center items-center text-[11px] font-sans-clean tracking-[0.35em] text-neutral-400">
               <button
                 onClick={handleShare}
                 className="hover:text-white cursor-pointer transition-colors duration-300 focus:outline-none uppercase"
