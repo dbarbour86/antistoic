@@ -1,0 +1,6 @@
+{
+  "name": "AntiStoic",
+  "description": "A modern philosophical publication exploring timeless Stoic wisdom through an editorial lens.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
