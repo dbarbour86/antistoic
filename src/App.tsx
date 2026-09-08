@@ -11,6 +11,10 @@ import { Footer } from './components/Footer';
 import { AmbientAudio } from './components/AmbientAudio';
 import { ConfirmedPage } from './components/ConfirmedPage';
 import { WhatsEatingYouPage } from './components/WhatsEatingYou/WhatsEatingYouPage';
+import { WhatIsAntiStoicPage } from './components/WhatIsAntiStoic/WhatIsAntiStoicPage';
+import { FeelLostInLifePage } from './components/Essays/FeelLostInLifePage';
+import { FeelBehindInLifePage } from './components/Essays/FeelBehindInLifePage';
+import { AfraidToStartOverPage } from './components/Essays/AfraidToStartOverPage';
 
 export default function App() {
   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
@@ -62,12 +66,16 @@ export default function App() {
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      // Don't intercept when user is typing in forms/inputs or on the confirmed or experimental reflection pages
+      // Don't intercept when user is typing in forms/inputs or on dedicated sub-pages
       if (
         document.activeElement?.tagName === 'INPUT' || 
         document.activeElement?.tagName === 'TEXTAREA' ||
         window.location.pathname.startsWith('/confirmed') ||
-        window.location.pathname.startsWith('/whats-eating-you')
+        window.location.pathname.startsWith('/whats-eating-you') ||
+        window.location.pathname.startsWith('/what-is-antistoic') ||
+        window.location.pathname.startsWith('/feel-lost-in-life') ||
+        window.location.pathname.startsWith('/feel-behind-in-life') ||
+        window.location.pathname.startsWith('/afraid-to-start-over')
       ) {
         return;
       }
@@ -96,6 +104,10 @@ export default function App() {
 
   const isConfirmedPage = currentPath === '/confirmed' || currentPath === '/confirmed/';
   const isWhatsEatingYouPage = currentPath.startsWith('/whats-eating-you');
+  const isWhatIsAntiStoicPage = currentPath.startsWith('/what-is-antistoic');
+  const isFeelLostPage = currentPath.startsWith('/feel-lost-in-life');
+  const isFeelBehindPage = currentPath.startsWith('/feel-behind-in-life');
+  const isAfraidToStartOverPage = currentPath.startsWith('/afraid-to-start-over');
 
   return (
     <div className="bg-black text-white min-h-screen relative font-sans-clean selection:bg-neutral-800 selection:text-white">
@@ -106,6 +118,14 @@ export default function App() {
         <ConfirmedPage />
       ) : isWhatsEatingYouPage ? (
         <WhatsEatingYouPage />
+      ) : isWhatIsAntiStoicPage ? (
+        <WhatIsAntiStoicPage />
+      ) : isFeelLostPage ? (
+        <FeelLostInLifePage />
+      ) : isFeelBehindPage ? (
+        <FeelBehindInLifePage />
+      ) : isAfraidToStartOverPage ? (
+        <AfraidToStartOverPage />
       ) : (
         <>
           {/* Navigation */}

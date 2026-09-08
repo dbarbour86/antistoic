@@ -13,6 +13,15 @@ export const Footer: React.FC = () => {
           </p>
         </div>
 
+        <div className="flex items-center space-x-8 text-[10px] font-sans-clean tracking-[0.25em] uppercase text-neutral-400">
+          <a href="/what-is-antistoic" className="hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white">
+            What Is AntiStoic?
+          </a>
+          <a href="/whats-eating-you" className="hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white">
+            Reality Check
+          </a>
+        </div>
+
         <p className="text-[10px] font-sans-clean tracking-[0.25em] uppercase text-neutral-500">
           © {new Date().getFullYear()} AntiStoic. All Rights Reserved.
         </p>

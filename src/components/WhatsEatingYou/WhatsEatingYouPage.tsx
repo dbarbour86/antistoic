@@ -53,6 +53,27 @@ export const WhatsEatingYouPage: React.FC = () => {
     };
   }, []);
 
+  // Check for safe topic query parameter on mount (e.g. ?topic=direction)
+  useEffect(() => {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const topic = params.get('topic');
+      if (topic) {
+        const matched = CATEGORIES.find(
+          (c) => c.id.toLowerCase() === topic.toLowerCase() && c.status === 'active'
+        );
+        if (matched) {
+          setSelectedCategory(matched);
+          setPhase('questions');
+          setCurrentQuestionIndex(0);
+          setAnswers({});
+        }
+      }
+    } catch {
+      // Ignore invalid query string parsing safely
+    }
+  }, []);
+
   // Scroll to top smoothly on phase or step change
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -98,10 +119,16 @@ export const WhatsEatingYouPage: React.FC = () => {
       } else {
         setPhase('category');
         setSelectedCategory(null);
+        if (window.location.search) {
+          window.history.replaceState({}, '', window.location.pathname);
+        }
       }
     } else if (phase === 'coming_soon' || phase === 'result') {
       setPhase('category');
       setSelectedCategory(null);
+      if (window.location.search) {
+        window.history.replaceState({}, '', window.location.pathname);
+      }
     }
   };
 
@@ -111,6 +138,9 @@ export const WhatsEatingYouPage: React.FC = () => {
     setCurrentQuestionIndex(0);
     setAnswers({});
     setResult(null);
+    if (window.location.search) {
+      window.history.replaceState({}, '', window.location.pathname);
+    }
   };
 
   const questions: Question[] = selectedCategory
@@ -241,12 +271,20 @@ export const WhatsEatingYouPage: React.FC = () => {
           <p className="text-[10px] font-sans-clean tracking-[0.25em] uppercase text-neutral-500">
             AntiStoic &middot; What’s Eating You &middot; Experimental Reflection
           </p>
-          <a
-            href="/"
-            className="text-[10px] font-sans-clean tracking-[0.25em] uppercase text-neutral-500 hover:text-white transition-colors"
-          >
-            antistoic.com
-          </a>
+          <div className="flex items-center space-x-6 text-[10px] font-sans-clean tracking-[0.25em] uppercase text-neutral-500">
+            <a
+              href="/what-is-antistoic"
+              className="hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white"
+            >
+              The Philosophy
+            </a>
+            <a
+              href="/"
+              className="hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white"
+            >
+              antistoic.com
+            </a>
+          </div>
         </div>
       </footer>
     </div>
