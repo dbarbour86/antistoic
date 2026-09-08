@@ -10,6 +10,7 @@ import { NewsletterSection } from './components/NewsletterSection';
 import { Footer } from './components/Footer';
 import { AmbientAudio } from './components/AmbientAudio';
 import { ConfirmedPage } from './components/ConfirmedPage';
+import { WhatsEatingYouPage } from './components/WhatsEatingYou/WhatsEatingYouPage';
 
 export default function App() {
   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
@@ -61,11 +62,12 @@ export default function App() {
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      // Don't intercept when user is typing in forms/inputs or on the confirmed page
+      // Don't intercept when user is typing in forms/inputs or on the confirmed or experimental reflection pages
       if (
         document.activeElement?.tagName === 'INPUT' || 
         document.activeElement?.tagName === 'TEXTAREA' ||
-        window.location.pathname.startsWith('/confirmed')
+        window.location.pathname.startsWith('/confirmed') ||
+        window.location.pathname.startsWith('/whats-eating-you')
       ) {
         return;
       }
@@ -93,6 +95,7 @@ export default function App() {
   }, []);
 
   const isConfirmedPage = currentPath === '/confirmed' || currentPath === '/confirmed/';
+  const isWhatsEatingYouPage = currentPath.startsWith('/whats-eating-you');
 
   return (
     <div className="bg-black text-white min-h-screen relative font-sans-clean selection:bg-neutral-800 selection:text-white">
@@ -101,6 +104,8 @@ export default function App() {
 
       {isConfirmedPage ? (
         <ConfirmedPage />
+      ) : isWhatsEatingYouPage ? (
+        <WhatsEatingYouPage />
       ) : (
         <>
           {/* Navigation */}

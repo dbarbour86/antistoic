@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /confirmed
 
 Sitemap: https://antistoic.com/sitemap.xml

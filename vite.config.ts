@@ -16,6 +16,7 @@ export default defineConfig(() => {
         input: {
           main: path.resolve(__dirname, 'index.html'),
           confirmed: path.resolve(__dirname, 'confirmed/index.html'),
+          whatsEatingYou: path.resolve(__dirname, 'whats-eating-you/index.html'),
         },
       },
     },
